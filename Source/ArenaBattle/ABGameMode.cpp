@@ -8,7 +8,7 @@
 AABGameMode::AABGameMode()
 {
 	DefaultPawnClass = AABPawn::StaticClass();
-	PlayerControllerClass = AABPawn::StaticClass();
+	PlayerControllerClass = AABPlayerController::StaticClass();
 }
 
 void AABGameMode::PostLogin(APlayerController* NewPlayer)
