@@ -31,6 +31,15 @@ AABPawn::AABPawn()
 	{
 		Mesh->SetSkeletalMesh(SK_CARDBOARD.Object);
 	}
+
+	// 애니메이션 블루프린트를 사용하여 애니메이션을 지정하는 방법
+	Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+
+	static ConstructorHelpers::FClassFinder<UAnimInstance> WARRIOR_ANIM(TEXT("/Game/Book/Animations/WarriorAnimBlueprint.WarriorAnimBlueprint_C"));
+	if (WARRIOR_ANIM.Succeeded())
+	{
+		Mesh->SetAnimInstanceClass(WARRIOR_ANIM.Class);
+	}
 }
 
 // Called when the game starts or when spawned
@@ -45,22 +54,12 @@ void AABPawn::BeginPlay()
 	// if (AnimAsset != nullptr)
 	// {
 	// 	Mesh->PlayAnimation(AnimAsset, true);
-	// }
-
-	// 애니메이션 블루프린트를 사용하여 애니메이션을 지정하는 방법
-	Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
-	
-	static ConstructorHelpers::FClassFinder<UAnimInstance> WARRIOR_ANIM(TEXT("/Game/Book/Animations/WarriorAnimBlueprint.WarriorAnimBlueprint_C"));
-	if (WARRIOR_ANIM.Succeeded())
-	{
-		Mesh->SetAnimInstanceClass(WARRIOR_ANIM.Class);
-	}
-	
+	// }	
 }
 
-// Called every frame
 void AABPawn::Tick(float DeltaTime)
-{
+{// Called every frame
+
 	Super::Tick(DeltaTime);
 
 }
