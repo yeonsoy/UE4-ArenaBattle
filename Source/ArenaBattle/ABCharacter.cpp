@@ -2,6 +2,7 @@
 
 
 #include "ABCharacter.h"
+#include "ABAnimInstance.h"
 
 // Sets default values
 AABCharacter::AABCharacter()
@@ -108,6 +109,12 @@ void AABCharacter::Tick(float DeltaTime)
 			AddMovementInput(DirectionToMove);
 		}
 		break;
+	}
+
+	auto ABAnimInstance = Cast<UABAnimInstance>(GetMesh()->GetAnimInstance());
+	if (nullptr != ABAnimInstance)
+	{
+		ABAnimInstance->SetPawnSpeed(GetVelocity().Size());
 	}
 }
 
