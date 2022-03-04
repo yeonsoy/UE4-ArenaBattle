@@ -63,4 +63,7 @@ private:
 private:
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 	bool IsAttacking;
+
+	UPROPERTY()
+	class UABAnimInstance* ABAnim;
 };

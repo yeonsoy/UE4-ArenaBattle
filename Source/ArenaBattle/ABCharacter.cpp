@@ -187,10 +187,10 @@ void AABCharacter::Turn(float NewAxisValue)
 void AABCharacter::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
-	auto AnimInstance = Cast<UABAnimInstance>(GetMesh()->GetAnimInstance());
-	ABCHECK(nullptr != AnimInstance);
+	ABAnim = Cast<UABAnimInstance>(GetMesh()->GetAnimInstance());
+	ABCHECK(nullptr != ABAnim);
 
-	AnimInstance->OnMontageEnded.AddDynamic(this, &AABCharacter::OnAttackMontageEnded);
+	ABAnim->OnMontageEnded.AddDynamic(this, &AABCharacter::OnAttackMontageEnded);
 }
 
 void AABCharacter::ViewChange()
@@ -211,12 +211,8 @@ void AABCharacter::ViewChange()
 void AABCharacter::Attack()
 {
 	if (IsAttacking) return;
-	ABLOG_S(Warning);
 
-	auto AnimInstance = Cast<UABAnimInstance>(GetMesh()->GetAnimInstance());
-	if (nullptr == AnimInstance) return;
-
-	AnimInstance->PlayAttackMontage();
+	ABAnim->PlayAttackMontage();
 	IsAttacking = true;
 }
 
