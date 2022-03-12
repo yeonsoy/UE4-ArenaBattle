@@ -42,6 +42,8 @@ AABCharacter::AABCharacter()
 
 	MaxCombo = 4;
 	AttackEndComboState();
+
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter"));
 }
 
 // Called when the game starts or when spawned
