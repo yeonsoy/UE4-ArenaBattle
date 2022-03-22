@@ -49,6 +49,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Weapon)
 	class AABWeapon* CurrentWeapon;
 
+	UPROPERTY(VisibleAnywhere, Category = Stat)
+	class UABCharacterStatComponent* CharacterStat;
+
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 	USkeletalMeshComponent* Weapon;
 
