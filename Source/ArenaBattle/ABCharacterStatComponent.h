@@ -40,7 +40,5 @@ private:
 	int32 Level;
 
 	UPROPERTY(Transient, VisibleInstanceOnly, Category = Stat, Meta = (AllowPrivateAccess = true))
-	float CurrentHP;
-
-		
+	float CurrentHP;	
 };

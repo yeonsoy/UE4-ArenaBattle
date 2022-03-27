@@ -252,6 +252,7 @@ void AABCharacter::PostInitializeComponents()
 		SetActorEnableCollision(false);
 	});
 
+	HPBarWidget->InitWidget();
 	auto CharacterWidget = Cast<UABCharacterWidget>(HPBarWidget->GetUserWidgetObject());
 	if (nullptr != CharacterWidget)
 	{
