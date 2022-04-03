@@ -14,7 +14,7 @@ AABAIController::AABAIController()
 	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBObject(TEXT("/Game/Book/AI/BB_ABCharacter.BB_ABCharacter"));
 	if (BBObject.Succeeded())
 	{
-		BBAset = BBObject.Object;
+		BBAsset = BBObject.Object;
 	}
 
 	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTObject(TEXT("/Game/Book/AI/BT_ABCharacter.BT_ABCharacter"));
@@ -27,7 +27,7 @@ AABAIController::AABAIController()
 void AABAIController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-	if (UseBlackboard(BBAset, Blackboard))
+	if (UseBlackboard(BBAsset, Blackboard))
 	{
 		Blackboard->SetValueAsVector(HomePosKey, InPawn->GetActorLocation());
 		if (!RunBehaviorTree(BTAsset))
