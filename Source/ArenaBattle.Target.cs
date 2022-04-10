@@ -10,6 +10,6 @@ public class ArenaBattleTarget : TargetRules
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 
-		ExtraModuleNames.AddRange( new string[] { "ArenaBattle" } );
+		ExtraModuleNames.AddRange( new string[] { "ArenaBattle", "ArenaBattleSetting" } );
 	}
 }
