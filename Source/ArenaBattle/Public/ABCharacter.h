@@ -114,5 +114,5 @@ private:
 	float AttackRadius;
 
 	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
-	TSharedPtr<struct FstreamableHandle> AssetStreamingHandle;
+	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
 };
