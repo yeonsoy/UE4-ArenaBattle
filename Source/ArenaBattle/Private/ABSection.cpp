@@ -24,6 +24,12 @@ AABSection::AABSection()
 		ABLOG(Error, TEXT("Failed to load staticmesh asset. : %s"), *AssetPath);
 	}
 
+	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("TRIGGER"));
+	Trigger->SetBoxExtent(FVector(775.0f, 775.0f, 300.0f));
+	Trigger->SetupAttachment(RootComponent);
+	Trigger->SetRelativeLocation(FVector(0.0f, 0.0f, 250.0f));
+	Trigger->SetCollisionProfileName(TEXT("ABTrigger"));
+
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &AABSection::OnTriggerBeginOverlap);
 
 	FString GateAssetPath = TEXT("/Game/Book/StaticMesh/SM_GATE.SM_GATE");
@@ -33,11 +39,6 @@ AABSection::AABSection()
 		ABLOG(Error, TEXT("Failed to load staticmesh asset. : %s"), *GateAssetPath);
 	}
 
-	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("TRIGGER"));
-	Trigger->SetBoxExtent(FVector(775.0f, 775.0f, 300.0f));
-	Trigger->SetupAttachment(RootComponent);
-	Trigger->SetRelativeLocation(FVector(0.0f, 0.0f, 250.0f));
-	Trigger->SetCollisionProfileName(TEXT("ABTrigger"));
 
 	static FName GateSockets[] = { { TEXT("+XGate") }, { TEXT("-XGate") }, { TEXT("+YGate") }, { TEXT("-YGate") } };
 	for (FName GateSocket : GateSockets)
