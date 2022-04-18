@@ -2,7 +2,7 @@
 
 [이득우의 언리얼 C++ 게임 개발의 정석] 책을 보고 실습하는 프로젝트입니다.
 
-Unreal Engiene 4.27 버전으로 진행.
+Unreal Engiene 4.26.2 버전으로 진행.
 
 ## CHAPTER 11
 - 389p ABCharacter.cpp
