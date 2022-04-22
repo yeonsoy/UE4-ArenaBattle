@@ -75,7 +75,7 @@ AABCharacter::AABCharacter()
 
 	SetActorHiddenInGame(true);
 	HPBarWidget->SetHiddenInGame(true);
-	bCanBeDamaged = false;
+	SetCanBeDamaged(false);
 
 	DeadTimer = 5.0f;
 }
@@ -131,14 +131,14 @@ void AABCharacter::SetCharacterState(ECharacterState NewState)
 
 		SetActorHiddenInGame(true);
 		HPBarWidget->SetHiddenInGame(true);
-		bCanBeDamaged = false;
+		SetCanBeDamaged(false);
 		break;
 	}
 	case ECharacterState::READY:
 	{
 		SetActorHiddenInGame(false);
 		HPBarWidget->SetHiddenInGame(false);
-		bCanBeDamaged = true;
+		SetCanBeDamaged(true);
 
 		CharacterStat->OnHPIsZero.AddLambda([this]() -> void {
 			SetCharacterState(ECharacterState::DEAD);
@@ -169,7 +169,7 @@ void AABCharacter::SetCharacterState(ECharacterState NewState)
 		GetMesh()->SetHiddenInGame(false);
 		HPBarWidget->SetHiddenInGame(true);
 		ABAnim->SetDeadAnim();
-		bCanBeDamaged = false;
+		SetCanBeDamaged(false);
 
 		if (bIsPlayer)
 		{
