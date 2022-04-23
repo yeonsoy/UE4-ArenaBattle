@@ -64,6 +64,11 @@ void UABCharacterStatComponent::SetHP(float NewHP)
 	}
 }
 
+int32 UABCharacterStatComponent::GetDropExp() const
+{
+	return CurrentStatData->DropExp;
+}
+
 float UABCharacterStatComponent::GetAttack()
 {
 	ABCHECK(nullptr != CurrentStatData, 0.0f);

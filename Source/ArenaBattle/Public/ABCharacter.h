@@ -73,6 +73,8 @@ public:
 	void Attack();
 	FOnAttackEndDelegate OnAttackEnd;
 
+	int32 GetExp() const;
+
 private:
 	void UpDown(float NewAxisValue);
 	void LeftRight(float NewAxisValue);
