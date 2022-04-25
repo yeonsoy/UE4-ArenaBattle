@@ -7,7 +7,7 @@
 UENUM(BlueprintType)
 enum class ECharacterState : uint8
 {
-	PREINT,
+	PREINIT,
 	LOADING,
 	READY,
 	DEAD
