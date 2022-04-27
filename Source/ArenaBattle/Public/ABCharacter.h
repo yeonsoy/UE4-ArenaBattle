@@ -74,6 +74,8 @@ public:
 	FOnAttackEndDelegate OnAttackEnd;
 
 	int32 GetExp() const;
+	float GetFinalAttackRange() const;
+	float GetFinalAttackDamage() const;
 
 private:
 	void UpDown(float NewAxisValue);
