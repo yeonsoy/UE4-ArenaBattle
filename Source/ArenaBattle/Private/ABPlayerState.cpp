@@ -12,6 +12,7 @@ AABPlayerState::AABPlayerState()
 	GameHighScore = 0;
 	Exp = 0;
 	SaveSlotName = TEXT("Player1");
+	CharacterIndex = 0;
 }
 
 int32 AABPlayerState::GetGameScore() const
@@ -29,6 +30,11 @@ int32 AABPlayerState::GetCharacterLevel() const
 	return CharacterLevel;
 }
 
+int32 AABPlayerState::GetCharacterIndex() const
+{
+	return CharacterIndex;
+}
+
 void AABPlayerState::InitPlayerData()
 {
 	auto ABSaveGame = Cast<UABSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
@@ -42,6 +48,7 @@ void AABPlayerState::InitPlayerData()
 	GameScore = 0;
 	GameHighScore = ABSaveGame->HighScore;
 	Exp = ABSaveGame->Exp;
+	CharacterIndex = ABSaveGame->CharacterIndex;
 	SavePlayerData();
 }
 
@@ -52,6 +59,7 @@ void AABPlayerState::SavePlayerData()
 	NewPlayerData->Level = CharacterLevel;
 	NewPlayerData->Exp = Exp;
 	NewPlayerData->HighScore = GameHighScore;
+	NewPlayerData->CharacterIndex = CharacterIndex;
 
 	if (!UGameplayStatics::SaveGameToSlot(NewPlayerData, SaveSlotName, 0))
 	{
