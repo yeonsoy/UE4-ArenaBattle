@@ -25,4 +25,7 @@ public:
 private:
 	UPROPERTY()
 	class AABGameState* ABGameState;
+
+	UPROPERTY()
+	int32 ScoreToClear;
 };

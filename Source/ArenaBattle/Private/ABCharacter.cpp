@@ -201,9 +201,12 @@ void AABCharacter::SetCharacterState(ECharacterState NewState)
 		}
 
 		GetWorld()->GetTimerManager().SetTimer(DeadTimerHandle, FTimerDelegate::CreateLambda([this]() -> void {
+
+			GetWorld()->GetTimerManager().ClearTimer(DeadTimerHandle);
+
 			if (bIsPlayer)
 			{
-				ABPlayerController->RestartLevel();
+				ABPlayerController->ShowResultUI();
 			}
 			else
 			{
